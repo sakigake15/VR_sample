@@ -10,6 +10,7 @@
 
 <body>
   <script>
+    var skin="diamond.png";
     AFRAME.registerComponent("input-listen", {
       //初期化
       init: function () {
@@ -23,6 +24,7 @@
         });
         //Aボタンを押した時(右手のみ)
         this.el.addEventListener("abuttondown", function (e) {
+          skin="tnt.png";
         });
         //Bボタンを押した時(右手のみ)
         this.el.addEventListener("bbuttondown", function (e) { });
@@ -45,7 +47,7 @@
       box.setAttribute("height", "0.1");
       box.setAttribute("depth", "0.1");
       box.setAttribute("position", position);
-      box.setAttribute("src","diamond.png");
+      box.setAttribute("src",skin);
       return box;
     }
 
