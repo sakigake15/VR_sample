@@ -23,7 +23,6 @@
         });
         //Aボタンを押した時(右手のみ)
         this.el.addEventListener("abuttondown", function (e) {
-          box.setAttribute("src","diamond.png");
         });
         //Bボタンを押した時(右手のみ)
         this.el.addEventListener("bbuttondown", function (e) { });
@@ -32,13 +31,13 @@
         //Xボタンを離した時(左手)
         this.el.addEventListener("xbuttonup", function (e) { });
       },
-
+      
       //毎フレーム更新 (今回は使わない)
       tick: function () { },
     });
-
+    
     function add_box(position) {
-
+      
       var box = document.createElement("a-box");
       box.setAttribute("color", "#ffffff");
       box.setAttribute("rotation", "0 0 0");
@@ -46,6 +45,7 @@
       box.setAttribute("height", "0.1");
       box.setAttribute("depth", "0.1");
       box.setAttribute("position", position);
+      box.setAttribute("src","diamond.png");
       return box;
     }
 
