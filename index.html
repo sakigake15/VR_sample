@@ -10,7 +10,6 @@
 
 <body>
   <script>
-    var skin;
     var skin_list = ["dirt.png", "moss.png", "stone.png", "diamond.png", "tnt.png"];
     var skin_number = 0;
     AFRAME.registerComponent("input-listen", {
@@ -31,7 +30,6 @@
           } else {
             skin_number = 0;
           }
-          skin = skin_list[skin_number];
         });
         //Bボタンを押した時(右手のみ)
         this.el.addEventListener("bbuttondown", function (e) { });
@@ -54,7 +52,7 @@
       box.setAttribute("height", "0.1");
       box.setAttribute("depth", "0.1");
       box.setAttribute("position", position);
-      box.setAttribute("src", skin);
+      box.setAttribute("src", skin_list[skin_number]);
       return box;
     }
 
