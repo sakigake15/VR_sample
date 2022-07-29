@@ -55,9 +55,9 @@
 
       var box = document.createElement("a-box");
       var pos = [];
-      pos[0] = Math.round(Math.round(position.x * 10) / 10);
-      pos[1] = Math.round(Math.round(position.y * 10) / 10);
-      pos[2] = Math.round(Math.round(position.z * 10) / 10);
+      pos[0] = (Math.round(position.x * 10) / 10);
+      pos[1] = (Math.round(position.y * 10) / 10);
+      pos[2] = (Math.round(position.z * 10) / 10);
       box.setAttribute("color", "#ffffff");
       box.setAttribute("rotation", "0 0 0");
       box.setAttribute("width", "0.1");
