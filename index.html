@@ -30,10 +30,10 @@
           } else {
             skin_number = 0;
           }
+          document.getElementById("text").setAttribute("value",skin_list[skin_number])
         });
         //Bボタンを押した時(右手のみ)
         this.el.addEventListener("bbuttondown", function (e) {
-          document.getElementById("test").setAttribute("value","AAA")
         });
         //Xボタンを押した時(左手のみ)
         this.el.addEventListener("xbuttondown", function (e) { });
@@ -66,7 +66,7 @@
     <a-entity oculus-touch-controls="hand: right" input-listen> </a-entity>
     <a-sky src="space.png"></a-sky>
     <a-entity camera>
-      <a-text id="test" position="-0.25 -2 -2" color="white" scale="1" value="test"></a-text>
+      <a-text id="text" position="-0.25 -1 -2" color="white" scale="1"></a-text>
     </a-entity>
 </body>
 
