@@ -12,6 +12,7 @@
   <script>
     var skin_list = ["dirt.png", "moss.png", "stone.png", "diamond.png", "tnt.png"];
     var skin_number = 0;
+    var last_number = 0;
     AFRAME.registerComponent("input-listen", {
       //初期化
       init: function () {
@@ -20,7 +21,7 @@
           //コントローラの3次元的な位置を取得
           var position = this.object3D.getWorldPosition();
           var scene = document.querySelector("a-scene");
-          var box = add_box(position);
+          var box = add_box(position, last_number);
           scene.appendChild(box);
         });
         //Aボタンを押した時(右手のみ)
@@ -30,22 +31,27 @@
           } else {
             skin_number = 0;
           }
-          document.getElementById("text").setAttribute("value",skin_list[skin_number])
+          document.getElementById("text").setAttribute("value", skin_list[skin_number])
         });
         //Bボタンを押した時(右手のみ)
         this.el.addEventListener("bbuttondown", function (e) {
         });
         //Xボタンを押した時(左手のみ)
-        this.el.addEventListener("xbuttondown", function (e) { });
+        this.el.addEventListener("xbuttondown", function (e) {
+          var remove=document.getElementsByClassName("pos"+last_number);
+          remove[0].parentNode.removeChild(remove[0]);
+
+        });
         //Xボタンを離した時(左手)
-        this.el.addEventListener("xbuttonup", function (e) { });
+        this.el.addEventListener("xbuttonup", function (e) {
+        });
       },
 
       //毎フレーム更新 (今回は使わない)
       tick: function () { },
     });
 
-    function add_box(position) {
+    function add_box(position, last_number) {
 
       var box = document.createElement("a-box");
       box.setAttribute("color", "#ffffff");
@@ -55,6 +61,7 @@
       box.setAttribute("depth", "0.1");
       box.setAttribute("position", position);
       box.setAttribute("src", skin_list[skin_number]);
+      box.setAttribute("class", "pos" + last_number);
       return box;
     }
 
@@ -68,6 +75,7 @@
     <a-entity camera>
       <a-text id="text" position="-0.25 -1 -2" color="white" scale="1"></a-text>
     </a-entity>
+  </a-scene>
 </body>
 
 </html>
