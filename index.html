@@ -38,7 +38,7 @@
         });
         //Xボタンを押した時(左手のみ)
         this.el.addEventListener("xbuttondown", function (e) {
-          var remove=document.getElementsByClassName("pos"+last_number);
+          var remove = document.getElementsByClassName("pos" + last_number);
           remove[0].parentNode.removeChild(remove[0]);
 
         });
@@ -54,12 +54,16 @@
     function add_box(position, last_number) {
 
       var box = document.createElement("a-box");
+      var pos = [];
+      pos[0] = Math.round(Math.round(position.x * 10) / 10);
+      pos[1] = Math.round(Math.round(position.y * 10) / 10);
+      pos[2] = Math.round(Math.round(position.z * 10) / 10);
       box.setAttribute("color", "#ffffff");
       box.setAttribute("rotation", "0 0 0");
       box.setAttribute("width", "0.1");
       box.setAttribute("height", "0.1");
       box.setAttribute("depth", "0.1");
-      box.setAttribute("position", position);
+      box.setAttribute("position", pos[0] + " " + pos[1] + " " + pos[2]);
       box.setAttribute("src", skin_list[skin_number]);
       box.setAttribute("class", "pos" + last_number);
       return box;
